@@ -1,5 +1,7 @@
 package com.khanhdx.finalproject;
 
+import com.khanhdx.finalproject.domain.dto.EntitiesDTO;
+import com.khanhdx.finalproject.domain.model.Entities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +21,19 @@ public class MainController {
     @PostMapping("/add")
     public void add(@RequestBody Entities entities){
         repositories.saveAndFlush(entities);
+    }
+
+    @PutMapping("/update")
+    public void update(@RequestParam Long id, @RequestBody Entities entitiesUpdate){
+        Entities entities = repositories.getOne(id);
+        entities.setName(entitiesUpdate.getName());
+        repositories.save(entitiesUpdate);
+    }
+
+    @DeleteMapping("/delete")
+    public void delete (@RequestParam Long id){
+        Entities entities = repositories.getOne(id);
+        repositories.delete(entities);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.khanhdx.finalproject;
+package com.khanhdx.finalproject.domain.model;
 
 
 import lombok.AllArgsConstructor;
