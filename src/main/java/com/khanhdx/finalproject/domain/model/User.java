@@ -18,9 +18,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "App_User", //
-        uniqueConstraints = { //
-                @UniqueConstraint(name = "APP_USER_UK", columnNames = "User_Name") })
+@Table(name = "app_user", uniqueConstraints = {@UniqueConstraint(name = "APP_USER_UK", columnNames = "User_Name") })
 public class User implements Serializable {
     @Id
     @GeneratedValue
@@ -30,9 +28,6 @@ public class User implements Serializable {
     @Column(name = "User_Name", length = 36, nullable = false)
     private String userName;
 
-    @Column(name = "Encryted_Password", length = 128, nullable = false)
-    private String encrytedPassword;
-
-    @Column(name = "Enabled", length = 1, nullable = false)
-    private boolean enabled;
+    @Column(name = "password", length = 128, nullable = false)
+    private String password;
 }
