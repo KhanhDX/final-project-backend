@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface Repositories extends JpaRepository<Entities, Long> {
+    Entities findEntitiesById (Long id);
 }

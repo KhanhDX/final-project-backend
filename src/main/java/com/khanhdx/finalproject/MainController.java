@@ -25,9 +25,9 @@ public class MainController {
 
     @PutMapping("/update")
     public void update(@RequestParam Long id, @RequestBody Entities entitiesUpdate){
-        Entities entities = repositories.getOne(id);
+        Entities entities = repositories.findEntitiesById(id);
         entities.setName(entitiesUpdate.getName());
-        repositories.save(entitiesUpdate);
+        repositories.save(entities);
     }
 
     @DeleteMapping("/delete")
