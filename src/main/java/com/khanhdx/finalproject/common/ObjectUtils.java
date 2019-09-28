@@ -1,4 +1,4 @@
-package com.khanhdx.finalproject;
+package com.khanhdx.finalproject.common;
 
 import com.khanhdx.finalproject.domain.dto.EntitiesDTO;
 import com.khanhdx.finalproject.domain.model.Entities;

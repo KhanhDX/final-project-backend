@@ -1,7 +1,8 @@
-package com.khanhdx.finalproject;
+package com.khanhdx.finalproject.controller;
 
-import com.khanhdx.finalproject.domain.dto.EntitiesDTO;
 import com.khanhdx.finalproject.domain.model.Entities;
+import com.khanhdx.finalproject.repository.Repositories;
+import com.khanhdx.finalproject.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,9 @@ import java.util.List;
 public class MainController {
     @Autowired
     private Repositories repositories;
+
+    @Autowired
+    private TeacherService teacherService;
 
     @GetMapping("/a")
     public List<Entities> all(){

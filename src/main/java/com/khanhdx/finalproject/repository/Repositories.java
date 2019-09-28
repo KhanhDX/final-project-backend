@@ -1,4 +1,4 @@
-package com.khanhdx.finalproject;
+package com.khanhdx.finalproject.repository;
 
 import com.khanhdx.finalproject.domain.model.Entities;
 import org.springframework.data.jpa.repository.JpaRepository;
