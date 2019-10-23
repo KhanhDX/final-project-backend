@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+
+    url: jdbc:postgresql://ec2-23-21-70-66.compute-1.amazonaws.com:5432/d5d41k3cq2sl1u
+    username: lwncnxoabpzzbq
+    password: 8e701ab73bb84dfdc12c7ecf695db23b333071109376925a966a61fca63a2e56
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+  security:
+    user:
+      name: admin
+      password: admin
