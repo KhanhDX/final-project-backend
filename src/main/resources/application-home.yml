@@ -7,3 +7,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+
+  security:
+    user:
+      name: admin
+      password: admin

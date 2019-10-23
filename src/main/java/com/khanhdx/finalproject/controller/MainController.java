@@ -24,7 +24,7 @@ public class MainController {
 
     @PostMapping("/add")
     public void add(@RequestBody Entities entities){
-        repositories.saveAndFlush(entities);
+        repositories.save(entities);
     }
 
     @PutMapping("/update")
