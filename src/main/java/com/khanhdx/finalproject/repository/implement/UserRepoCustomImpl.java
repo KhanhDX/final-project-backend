@@ -1,9 +1,10 @@
-package com.khanhdx.finalproject.DAO;
+package com.khanhdx.finalproject.repository.implement;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.khanhdx.finalproject.domain.model.User;
+import com.khanhdx.finalproject.repository.UserRepoCustom;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,21 +18,21 @@ import org.springframework.transaction.annotation.Transactional;
  * @author KhanhDX
  * @since 11/7/2019
  */
-@Repository(value = "userDAO")
+@Repository
 @Transactional(rollbackFor = Exception.class)
-public class UserDAO {
+public class UserRepoCustomImpl implements UserRepoCustom {
+
     @Autowired
     private SessionFactory sessionFactory;
 
-    public User loadUserByUsername(final String username) {
-        List<User> users = new ArrayList<User>();
+    @Override
+    public User loadUserByUsername(String username) {
+        List<User> users = new ArrayList<>();
         Session session = this.sessionFactory.getCurrentSession();
-        users = session.createQuery("from User where username=?", User.class).setParameter(0, username).list();
-        if (users.size() > 0) {
-            return users.get(0);
-        } else {
-            return null;
-        }
-    }
 
+        users = session.createQuery("from User where username=?", User.class)
+                .setParameter(0, username).list();
+
+         return (users.size() > 0) ? users.get(0) : null;
+    }
 }

@@ -1,12 +1,15 @@
 package com.khanhdx.finalproject.service.implement;
 
-import com.khanhdx.finalproject.DAO.UserDAO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
+import com.khanhdx.finalproject.repository.UserRepo;
+import com.khanhdx.finalproject.repository.implement.UserRepoCustomImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import static java.util.Collections.emptyList;
 
 /**
  * Class name.
@@ -18,19 +21,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
-    private UserDAO userDAO;
+    private UserRepo userRepo;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        com.khanhdx.finalproject.domain.model.User user = userDAO.loadUserByUsername(username);
+        com.khanhdx.finalproject.domain.model.User user = userRepo.findUserByUsername(username);
         if (user == null) {
-            throw new UsernameNotFoundException("Username Not Found");
+            throw new UsernameNotFoundException(username);
         }
-        boolean enabled = true;
-        boolean accountNonExpired = true;
-        boolean credentialsNonExpired = true;
-        boolean accountNonLocked = true;
-        return new User(username, user.getPassword(), enabled, accountNonExpired, credentialsNonExpired,
-                accountNonLocked, user.getAuthorities());
+        return new User(user.getUsername(), user.getPassword(), emptyList());
     }
 }
