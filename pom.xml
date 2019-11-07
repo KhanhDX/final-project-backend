@@ -32,13 +32,11 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-
         </dependency>
 
         <dependency>
@@ -46,21 +44,17 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--&lt;!&ndash; https://mvnrepository.com/artifact/ma.glasnost.orika/orika-core &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>ma.glasnost.orika</groupId>-->
-            <!--<artifactId>orika-core</artifactId>-->
-            <!--<version>1.4.5</version>-->
-        <!--</dependency>-->
 
-        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.2.5</version>
-
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
 
     </dependencies>
 
@@ -70,7 +64,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
 
 
             <plugin>
