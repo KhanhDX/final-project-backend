@@ -39,5 +39,5 @@ public class Course implements Serializable {
     private Double price;
 
     @Column(name = "status")
-    private Long status;
+    private Short status;
 }

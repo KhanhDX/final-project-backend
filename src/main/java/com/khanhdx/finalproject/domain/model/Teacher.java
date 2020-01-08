@@ -46,5 +46,5 @@ public class Teacher implements Serializable {
     private String teacherPhone;
 
     @Column(name = "status")
-    private String status;
+    private Short status;
 }
