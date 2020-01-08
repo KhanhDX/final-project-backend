@@ -18,17 +18,17 @@ public class Bill implements Serializable {
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "bill_id")
-    private Long courseId;
+    private Long billId;
 
     @Column(name = "student_id")
-    private Long courseName;
+    private Long studentId;
 
     @Column(name = "course_id")
-    private Long teacherId;
+    private Long courseId;
 
-    @Column(name = "price")
-    private Double price;
+    @Column(name = "amount")
+    private Double amount;
 
     @Column(name = "status")
-    private Long status;
+    private Short status;
 }

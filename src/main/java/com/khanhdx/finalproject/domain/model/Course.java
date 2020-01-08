@@ -35,6 +35,9 @@ public class Course implements Serializable {
     @Column(name = "endDateTime")
     private Long endDateTime;
 
+    @Column(name = "price")
+    private Double price;
+
     @Column(name = "status")
     private Long status;
 }

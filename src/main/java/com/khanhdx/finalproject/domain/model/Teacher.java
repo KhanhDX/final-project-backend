@@ -30,8 +30,8 @@ public class Teacher implements Serializable {
     @Column(name = "teacher_name")
     private String teacherName;
 
-    @Column(name = "teacher_age")
-    private String teacherAge;
+    @Column(name = "teacher_dob")
+    private String teacherDob;
 
     @Column(name = "teacher_gender")
     private String teacherGender;

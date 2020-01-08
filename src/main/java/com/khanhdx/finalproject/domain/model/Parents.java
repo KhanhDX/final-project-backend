@@ -18,25 +18,25 @@ public class Parents implements Serializable {
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "parents_id")
-    private Long teacherId;
+    private Long parentId;
 
     @Column(name = "parents_name")
-    private String teacherName;
+    private String parentName;
 
-    @Column(name = "parents_age")
-    private String teacherAge;
+    @Column(name = "parents_dob")
+    private String parentDob;
 
     @Column(name = "parents_gender")
-    private String teacherGender;
+    private String parentGender;
 
     @Column(name = "parents_address")
-    private String teacherAddress;
+    private String parentAddress;
 
     @Column(name = "parents_email")
-    private String teacherEmail;
+    private String parentEmail;
 
     @Column(name = "parents_phone")
-    private String teacherPhone;
+    private String parentPhone;
 
     @Column(name = "status")
     private String status;
