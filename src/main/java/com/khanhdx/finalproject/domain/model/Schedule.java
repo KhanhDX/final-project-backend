@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -18,6 +16,8 @@ import java.time.LocalDateTime;
 @Table(name = "schedule")
 public class Schedule implements Serializable {
     @Id
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "schedule_id")
     private Long scheduleId;
 
@@ -30,7 +30,7 @@ public class Schedule implements Serializable {
     @Column(name = "start_datetime")
     private LocalDateTime startDateTime;
 
-    @Column(name = "endDateTime")
+    @Column(name = "end_dateTime")
     private LocalDateTime endDateTime;
 
     @Column(name = "course_id")

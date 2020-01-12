@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -21,19 +22,16 @@ public class Course implements Serializable {
     private Long courseId;
 
     @Column(name = "course_name")
-    private Long courseName;
+    private String courseName;
 
     @Column(name = "teacher_id")
     private Long teacherId;
 
-    @Column(name = "teacher_name")
-    private Long teacherName;
-
     @Column(name = "start_datetime")
-    private Long startDateTime;
+    private LocalDateTime startDateTime;
 
-    @Column(name = "endDateTime")
-    private Long endDateTime;
+    @Column(name = "end_dateTime")
+    private LocalDateTime endDateTime;
 
     @Column(name = "price")
     private Double price;

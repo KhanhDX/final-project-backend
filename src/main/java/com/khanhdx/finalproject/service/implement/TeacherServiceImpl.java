@@ -35,7 +35,7 @@ public class TeacherServiceImpl implements TeacherService {
     public void updateTeacher(Long teacherId, Teacher teacher) {
         Teacher teacher1 = teacherRepo.findTeacherByTeacherId(teacherId);
         teacher1.setTeacherName(teacher.getTeacherName());
-        teacher1.setTeacherAge(teacher.getTeacherAge());
+        teacher1.setTeacherDob(teacher.getTeacherDob());
         teacher1.setTeacherGender(teacher.getTeacherGender());
         teacher1.setTeacherAddress(teacher.getTeacherAddress());
         teacher1.setTeacherEmail(teacher.getTeacherEmail());
