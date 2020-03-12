@@ -25,3 +25,6 @@ spring:
 logging:
   level:
     org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl: ERROR
+
+jwt:
+  secret: khanhdx

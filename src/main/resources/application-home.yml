@@ -12,11 +12,5 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
 
-  security:
-    user:
-      name: admin
-      password: admin
-
-oauth0:
-  issuer: https://blog-samples.auth0.com/
-  apiAudience: https://contacts.blog-samples.com/
+jwt:
+  secret: khanhdx

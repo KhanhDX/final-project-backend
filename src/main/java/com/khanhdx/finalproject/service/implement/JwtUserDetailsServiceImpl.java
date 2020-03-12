@@ -19,7 +19,7 @@ import static java.util.Collections.emptyList;
  * @since 11/7/2019
  */
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class JwtUserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private UserRepo userRepo;
 
