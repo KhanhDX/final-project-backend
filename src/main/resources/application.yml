@@ -16,11 +16,15 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
         jdbc:
           lob:
-            non_contextual_creation: true
+            non_contextual_creation: false
+      current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
 
-  security:
-    user:
-      name: admin
-      password: admin
+logging:
+  level:
+    org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl: ERROR
+
+jwt:
+  secret: khanhdx
