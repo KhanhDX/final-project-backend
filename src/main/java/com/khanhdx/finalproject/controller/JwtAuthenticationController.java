@@ -2,7 +2,6 @@ package com.khanhdx.finalproject.controller;
 
 
 import com.khanhdx.finalproject.config.security.JwtTokenProvider;
-import com.khanhdx.finalproject.config.util.JwtTokenUtil;
 import com.khanhdx.finalproject.domain.dto.request.LoginRequest;
 import com.khanhdx.finalproject.domain.dto.request.SignUpRequest;
 import com.khanhdx.finalproject.domain.dto.response.ApiResponse;
@@ -36,9 +35,6 @@ import java.util.Collections;
 public class JwtAuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;
-
-    @Autowired
-    private JwtTokenUtil jwtTokenUtil;
 
     @Autowired
     private JwtUserDetailsServiceImpl userDetailsService;
