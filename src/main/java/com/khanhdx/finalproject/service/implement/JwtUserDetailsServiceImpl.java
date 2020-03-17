@@ -2,7 +2,6 @@ package com.khanhdx.finalproject.service.implement;
 
 import org.springframework.security.core.userdetails.User;
 import com.khanhdx.finalproject.repository.UserRepo;
-import com.khanhdx.finalproject.repository.implement.UserRepoCustomImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -12,5 +12,6 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
 
-jwt:
-  secret: khanhdx
+app:
+  jwtSecret: KhanhDX
+  jwtExpirationInMs: 604800000
