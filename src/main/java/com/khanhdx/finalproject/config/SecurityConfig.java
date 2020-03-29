@@ -28,34 +28,34 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-  @Autowired
-  private CustomUserDetailsService customUserDetailsService;
+    @Autowired
+    private CustomUserDetailsService customUserDetailsService;
 
-  @Autowired
-  private JwtAuthenticationEntryPoint unauthorizedHandler;
+    @Autowired
+    private JwtAuthenticationEntryPoint unauthorizedHandler;
 
-  @Bean
-  public JwtAuthenticationFilter jwtAuthenticationFilter() {
-    return new JwtAuthenticationFilter();
-  }
-  
-  @Override
-  public void configure(AuthenticationManagerBuilder authenticationManagerBuilder)
-      throws Exception {
-    authenticationManagerBuilder.userDetailsService(customUserDetailsService)
-        .passwordEncoder(passwordEncoder());
-  }
+    @Bean
+    public JwtAuthenticationFilter jwtAuthenticationFilter() {
+        return new JwtAuthenticationFilter();
+    }
 
-  @Bean()
-  @Override
-  public AuthenticationManager authenticationManagerBean() throws Exception {
-    return super.authenticationManagerBean();
-  }
+    @Override
+    public void configure(AuthenticationManagerBuilder authenticationManagerBuilder)
+            throws Exception {
+        authenticationManagerBuilder.userDetailsService(customUserDetailsService)
+                .passwordEncoder(passwordEncoder());
+    }
 
-  @Bean
-  public PasswordEncoder passwordEncoder() {
-    return new BCryptPasswordEncoder();
-  }
+    @Bean()
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
 //  @Override
 //  protected void configure(HttpSecurity http) throws Exception {
@@ -77,26 +77,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //    http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 //  }
 
-  @Override
-  protected void configure(HttpSecurity httpSecurity) throws Exception {
-    // We don't need CSRF for this example
-    httpSecurity
-      .csrf()
-        .disable()
-        // dont authenticate this particular request
-        .authorizeRequests()
-        .antMatchers("/api/auth/**").permitAll()
-        // all other requests need to be authenticated
-        .anyRequest().authenticated()
-        .and()
-        // make sure we use stateless session; session won't be used to
-        // store user's state.
-        .exceptionHandling()
-        .authenticationEntryPoint(unauthorizedHandler)
-        .and()
-        .sessionManagement()
-        .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-    // Add a filter to validate the tokens with every request
-    httpSecurity.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-  }
+    @Override
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
+        // We don't need CSRF for this example
+        httpSecurity
+                .csrf()
+                .disable()
+                // dont authenticate this particular request
+                .authorizeRequests()
+                .antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/course/**").permitAll()
+                // all other requests need to be authenticated
+                .anyRequest().authenticated()
+                .and()
+                // make sure we use stateless session; session won't be used to
+                // store user's state.
+                .exceptionHandling()
+                .authenticationEntryPoint(unauthorizedHandler)
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        // Add a filter to validate the tokens with every request
+        httpSecurity.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+    }
 }
