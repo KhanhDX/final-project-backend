@@ -15,7 +15,7 @@ public class UserPrincipal implements UserDetails {
 
   private static final long serialVersionUID = 6319521209234357057L;
 
-  private Long id;
+  private Integer id;
 
   private String username;
 
@@ -27,7 +27,7 @@ public class UserPrincipal implements UserDetails {
 
   private Collection<? extends GrantedAuthority> authorities;
 
-  public UserPrincipal(Long id, String username, String email, String password,
+  public UserPrincipal(Integer id, String username, String email, String password,
       Collection<? extends GrantedAuthority> authorities) {
     this.id = id;
     this.username = username;
@@ -49,7 +49,7 @@ public class UserPrincipal implements UserDetails {
       );
   }
 
-  public Long getId() {
+  public Integer getId() {
     return id;
   }
 

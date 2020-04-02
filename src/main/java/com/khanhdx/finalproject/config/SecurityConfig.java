@@ -57,26 +57,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-//  @Override
-//  protected void configure(HttpSecurity http) throws Exception {
-//    http
-//    .cors()
-//    .and()
-//    .csrf()
-//    .disable()
-//    .authorizeRequests()
-//    .antMatchers("/api/auth/**").permitAll()
-//    .anyRequest().authenticated()
-//    .and()
-//    .exceptionHandling()
-//    .authenticationEntryPoint(unauthorizedHandler)
-//    .and()
-//    .sessionManagement()
-//    .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//    // Add our custom JWT security filter
-//    http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-//  }
-
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         // We don't need CSRF for this example
@@ -86,7 +66,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // dont authenticate this particular request
                 .authorizeRequests()
                 .antMatchers("/api/auth/**").permitAll()
-                .antMatchers("/course/**").permitAll()
+                .antMatchers("/users/sign-up").permitAll()
+                .antMatchers("/course/**").fullyAuthenticated()
                 // all other requests need to be authenticated
                 .anyRequest().authenticated()
                 .and()
