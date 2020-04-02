@@ -7,6 +7,7 @@ import com.khanhdx.finalproject.config.security.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -63,13 +64,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity
                 .csrf()
                 .disable()
-                // dont authenticate this particular request
+                // dont authenticate these particular requests
                 .authorizeRequests()
                 .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/users/sign-up").permitAll()
-                .antMatchers("/course/**").fullyAuthenticated()
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 // all other requests need to be authenticated
-                .anyRequest().authenticated()
+                .anyRequest().fullyAuthenticated()
                 .and()
                 // make sure we use stateless session; session won't be used to
                 // store user's state.

@@ -1,19 +1,19 @@
 package com.khanhdx.finalproject.domain.dto.response;
 
 public class JwtAuthenticationResponse {
-  private String accessToken;
+  private String token;
   private String tokenType = "Bearer";
 
-  public JwtAuthenticationResponse(String accessToken) {
-    this.accessToken = accessToken;
+  public JwtAuthenticationResponse(String token) {
+    this.token = token;
   }
 
-  public String getAccessToken() {
-    return accessToken;
+  public String getToken() {
+    return token;
   }
 
-  public void setAccessToken(String accessToken) {
-    this.accessToken = accessToken;
+  public void setToken(String token) {
+    this.token = token;
   }
 
   public String getTokenType() {
