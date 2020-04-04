@@ -11,9 +11,9 @@ public interface CourseService {
 
     Course getCourseById (Long courseId);
 
-    void addNewCourse(CourseDTO courseDTO);
+    void addNewCourse(CourseDTO courseDTO) throws Exception;
 
-    void updateCourse(Long id, CourseDTO courseDTO);
+    void updateCourse(Long id, CourseDTO courseDTO) throws Exception;
 
     void deleteCourse(Long id);
 }

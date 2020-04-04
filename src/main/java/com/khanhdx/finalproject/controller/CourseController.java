@@ -21,17 +21,16 @@ public class CourseController {
         return Objects.isNull(courseId) ?
                 new ResponseEntity<>(courseService.getAllCourse(), HttpStatus.OK) :
                 new ResponseEntity<>(courseService.getCourseById(courseId), HttpStatus.OK);
-
     }
 
     @PostMapping("create")
-    public ResponseEntity createNewCourse(@RequestBody CourseDTO courseDTO) {
+    public ResponseEntity createNewCourse(@RequestBody CourseDTO courseDTO) throws Exception {
         courseService.addNewCourse(courseDTO);
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @PutMapping("update")
-    public ResponseEntity updateCourse(@RequestParam Long courseId, @RequestBody CourseDTO courseDTO) {
+    public ResponseEntity updateCourse(@RequestParam Long courseId, @RequestBody CourseDTO courseDTO) throws Exception {
         courseService.updateCourse(courseId, courseDTO);
         return new ResponseEntity(HttpStatus.OK);
 
