@@ -14,9 +14,6 @@ public class MainController {
     @Autowired
     private Repositories repositories;
 
-    @Autowired
-    private TeacherService teacherService;
-
     @GetMapping("/a")
     public List<Entities> all(){
         return repositories.findAll();
