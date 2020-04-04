@@ -13,7 +13,7 @@ public interface StudentService {
 
     void addNewStudent(StudentDTO studentDTO);
 
-    void updateCourse(Long studentId, StudentDTO studentDTO);
+    void updateStudent(Long studentId, StudentDTO studentDTO);
 
-    void deleteCourse(Long studentId);
+    void deleteStudent(Long studentId);
 }

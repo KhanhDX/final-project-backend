@@ -31,13 +31,13 @@ public class StudentController {
 
     @PutMapping("update")
     public ResponseEntity updateStudent(@RequestParam Long studentId, @RequestBody StudentDTO studentDTO){
-        studentService.updateCourse(studentId, studentDTO);
+        studentService.updateStudent(studentId, studentDTO);
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @DeleteMapping("delete")
     public ResponseEntity deleteStudent (Long studentId){
-        studentService.deleteCourse(studentId);
+        studentService.deleteStudent(studentId);
         return new ResponseEntity(HttpStatus.OK);
     }
 }

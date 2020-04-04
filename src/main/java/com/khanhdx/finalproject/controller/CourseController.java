@@ -30,8 +30,8 @@ public class CourseController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PutMapping("update/{courseId}")
-    public ResponseEntity updateCourse(@PathVariable Long courseId, @RequestBody CourseDTO courseDTO) {
+    @PutMapping("update")
+    public ResponseEntity updateCourse(@RequestParam Long courseId, @RequestBody CourseDTO courseDTO) {
         courseService.updateCourse(courseId, courseDTO);
         return new ResponseEntity(HttpStatus.OK);
 

@@ -40,12 +40,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void updateCourse(Long studentId, StudentDTO studentDTO) {
+    public void updateStudent(Long studentId, StudentDTO studentDTO) {
 
     }
 
     @Override
-    public void deleteCourse(Long studentId) {
+    public void deleteStudent(Long studentId) {
 
     }
 }

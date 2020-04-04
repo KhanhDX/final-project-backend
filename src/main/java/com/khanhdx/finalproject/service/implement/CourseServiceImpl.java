@@ -38,6 +38,8 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public void updateCourse(Long courseId, CourseDTO courseDTO) {
+
+
         Course course = courseRepo.findCourseByCourseId(courseId);
         course.setCourseName(courseDTO.getCourseName());
         course.setTeacherId(courseDTO.getTeacherId());
