@@ -17,10 +17,8 @@ public class ScheduleController {
     private ScheduleService scheduleService;
 
     @GetMapping("view-all-schedules")
-    public ResponseEntity viewAllSchedules(@RequestParam Long scheduleId) {
-        return Objects.isNull(scheduleId) ?
-                new ResponseEntity(scheduleService.getAllSchedule(), HttpStatus.OK) :
-                new ResponseEntity(scheduleService.getScheduleById(scheduleId), HttpStatus.OK);
+    public ResponseEntity viewAllSchedules() {
+        return new ResponseEntity(scheduleService.getAllSchedule(), HttpStatus.OK);
     }
 
     @PostMapping("create")
