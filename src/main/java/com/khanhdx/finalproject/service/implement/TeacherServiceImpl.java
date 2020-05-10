@@ -49,4 +49,9 @@ public class TeacherServiceImpl implements TeacherService {
         Teacher teacher = teacherRepo.findTeacherByTeacherId(teacherId);
         teacherRepo.delete(teacher);
     }
+
+    @Override
+    public Teacher getTeacherById(Long teacherId) {
+        return teacherRepo.findTeacherByTeacherId(teacherId);
+    }
 }

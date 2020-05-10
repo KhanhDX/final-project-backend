@@ -29,13 +29,18 @@ public class TeacherController {
         teacherService.addTeacher(teacher);
     }
 
-    @PutMapping("/update-teacher")
-    public void update(@RequestParam(value = "teacherId") Long id, @RequestBody Teacher teacher){
+    @PutMapping("/update-teacher/{teacherId}")
+    public void update(@PathVariable(value = "teacherId") Long id, @RequestBody Teacher teacher){
         teacherService.updateTeacher(id,teacher);
     }
 
-    @DeleteMapping("/delete-teacher")
-    public void delete (@RequestParam(value = "teacherId") Long id){
+    @GetMapping("/search-teacher/{teacherId}")
+    public Teacher searchTeacher(@PathVariable Long teacherId){
+        return teacherService.getTeacherById(teacherId);
+    }
+
+    @DeleteMapping("/delete-teacher/{teacherId}")
+    public void delete (@PathVariable(value = "teacherId") Long id){
         teacherService.delete(id);
     }
 }
