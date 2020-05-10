@@ -21,6 +21,11 @@ public class ScheduleController {
         return new ResponseEntity(scheduleService.getAllSchedule(), HttpStatus.OK);
     }
 
+    @GetMapping("search-schedules/{scheduleId}")
+    public ResponseEntity getScheduleById(@PathVariable Long scheduleId) {
+        return new ResponseEntity(scheduleService.getScheduleById(scheduleId), HttpStatus.OK);
+    }
+
     @PostMapping("create")
     public ResponseEntity addNewSchedule(@RequestBody ScheduleDTO scheduleDTO){
         scheduleService.addNewSchedule(scheduleDTO);
@@ -33,8 +38,8 @@ public class ScheduleController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @DeleteMapping("delete")
-    public ResponseEntity deleteStudent (Long scheduleId){
+    @DeleteMapping("delete/{scheduleId}")
+    public ResponseEntity deleteStudent (@PathVariable Long scheduleId){
         scheduleService.deleteSchedule(scheduleId);
         return new ResponseEntity(HttpStatus.OK);
     }
